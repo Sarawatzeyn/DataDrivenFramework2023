@@ -9,7 +9,9 @@ public class PropertiesReader {
 
 	public PropertiesReader() {
 		prop = new Properties();
-		String propertyFile = "src/test/resources/test.properties";
+		String propertyFile ="src/test/resources/resources/test.properties" ;
+		
+		
 			FileInputStream fis;
 			try {
 				fis = new FileInputStream(propertyFile);

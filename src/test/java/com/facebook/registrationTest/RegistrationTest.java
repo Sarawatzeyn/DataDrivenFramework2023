@@ -24,10 +24,18 @@ public void openFacebook() {
 		regPage= new Registrationpage(driver);
 		regPage.createNewAccountButton();
 		exReader= new ExcelReader(file,sheetName);
-		String fName=exReader.getStringCellValue(1, 0);
-		regPage.firstNameField(fName);
-	}
-	@AfterMethod
+		String firstNameField=exReader.getStringCellValue(1, 0);
+		regPage.firstNameField(firstNameField);
+	    String lastNameField=exReader.getStringCellValue(1, 1);
+	    regPage.lastNameField(lastNameField);
+	    String emailField=exReader.getStringCellValue(1, 2);
+	    regPage.emailField(emailField);
+	    String reEnteremailField=exReader.getStringCellValue(1, 3);
+	    regPage.reEnteremailField(reEnteremailField);
+	    String newPasswordField=exReader.getStringCellValue(1, 3);
+	    regPage.newPasswordField(newPasswordField);
+	};
+//	@AfterMethod
 	public void closeFacebook() {
 		closeApp();
 	}

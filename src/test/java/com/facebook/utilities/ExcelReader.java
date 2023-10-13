@@ -1,7 +1,7 @@
 package com.facebook.utilities;
 
 import java.io.FileInputStream;
-
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import org.apache.poi.ss.usermodel.Cell;
@@ -42,7 +42,7 @@ public class ExcelReader {
 public  String getStringCellValue(int rowNum,int columnNum) {
 	String celldata =null;//flag
 	try {
-		FileInputStream fis= new FileInputStream(filePath);
+		FileInputStream fis= new FileInputStream(filePath);//fis refferencial object
 		Workbook registrationBook = new XSSFWorkbook(fis);
 		Sheet sheet=registrationBook.getSheet(sheetName);
 		Row row=sheet.getRow(rowNum);
@@ -82,9 +82,6 @@ return celldata;
 }
 
 
-
-	
-
 	public static void main(String[] args) {
 		String file="src/test/resources/resources/registration.xlsx";
 		
@@ -96,6 +93,7 @@ return celldata;
 		er.getStringCellValue(1, 1);
 		er.getStringCellValue(1, 2);
 		er.getStringCellValue(1, 3);
+		
 		ExcelReader er1 = new ExcelReader(file,"Sheet3");
 		er1.getNumericCellValue(1, 0);
 		er1.getNumericCellValue(1, 1);

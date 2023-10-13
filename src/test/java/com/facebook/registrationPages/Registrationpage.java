@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 public class Registrationpage {
 
 	WebDriver driver;
+	
 	public Registrationpage(WebDriver driver) {
 		super();
 		this.driver = driver;
@@ -30,22 +31,32 @@ public class Registrationpage {
 	}
 	@FindBy(how=How.NAME,using="lastname")
 	public WebElement lastName;
+	
 	public WebElement lastNameField(String enterLastName) {
 	lastName.sendKeys(enterLastName);
 	return lastName;
 	}
 	@FindBy(how=How.NAME,using ="reg_email__")
 	public WebElement email;
+	
 	public WebElement emailField(String enterEmail) {
 		email.sendKeys(enterEmail);
 		return email;
 	}
 	@FindBy(how=How.NAME,using ="reg_email_confirmation__")
 	public WebElement reEnteremail;
-	public String reEnteremailField(String reEnteremail ) {
-		reEnteremail.compareTo(reEnteremail);
+	
+	public WebElement reEnteremailField(String confirmEmail ) {
+		reEnteremail.sendKeys(confirmEmail);//check with sabrina
 		return reEnteremail;
 }
+	@FindBy(how=How.NAME,using="reg_passwd__")
+	public WebElement newPassword;
+	
+	public WebElement newPasswordField(String newPass) {
+		newPassword.sendKeys(newPass);
+		return newPassword;
+	}
 }
 
 
